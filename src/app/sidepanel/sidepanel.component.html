@@ -1,0 +1,16 @@
+<div class="sidepanel">
+  <div class="actions">
+    <button class="create-btn" (click)="onAction('file')">+ File</button>
+    <button class="create-btn" (click)="onAction('folder')">+ Folder</button>
+  </div>
+  <div class="items-container">
+      <div *ngFor="let items of allData" class="items">
+        <div *ngIf="items['type'] === 'folder'" class="folder-container">
+          <app-folder [mainFolder]="items"></app-folder>
+        </div>
+        <div *ngIf="items['type'] === 'file'" class="file-container">
+          <app-file [mainFile]="items"></app-file>
+        </div>
+      </div>
+  </div>
+</div>

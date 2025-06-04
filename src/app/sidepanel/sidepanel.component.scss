@@ -1,0 +1,31 @@
+.sidepanel {
+  padding: 1rem;
+  background-color: rgb(251, 255, 255);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.items-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.create-btn {
+  padding: 7px;
+  font-size: 1.5rem;
+  background-color: rgb(80, 80, 230);
+  border: none;
+  color: white;
+  border-radius: 7px;
+  transition: background-color 0.4s;
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(28, 28, 97);
+  }
+}
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: end;
+}

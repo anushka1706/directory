@@ -1,0 +1,45 @@
+.folder-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: rgb(240, 239, 239);
+  padding: 7px;
+  border-radius: 7px;
+  transition: background-color 0.4s;
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(220, 220, 220);
+  }
+}
+.info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.folder-name,
+.folder-icon {
+  font-size: 1.5rem;
+}
+.isExpanded {
+  transform: rotate(90deg);
+  transition: transform 0.4s;
+}
+.create-btn {
+  background-color: black;
+  padding: 7px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(76, 75, 75);
+  }
+}
+.actions {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 2px;
+  align-self: end;
+  width: fit-content;
+}

@@ -1,0 +1,85 @@
+.container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+.form {
+  background-color: #edf2ff;
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  .fields {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    label {
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+    input,
+    select {
+      border-radius: 5px;
+      padding: 5px;
+      width: 100%;
+      outline: none;
+      border: 1px solid grey;
+    }
+  }
+}
+.form-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 75%;
+  align-items: end;
+  padding: 2rem;
+}
+.create-btn {
+  width: fit-content;
+  background-color: rgb(80, 80, 230);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 7px;
+  border-radius: 7px;
+  transition: background-color 0.4s;
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(28, 28, 97);
+  }
+}
+.form {
+  width: fit-content;
+  align-self: center;
+}
+.sidepanel-container {
+  height: 100%;
+  flex-grow: 1;
+  border-right: 2px solid rgb(217, 217, 217);
+}
+.add-btn {
+  width: fit-content;
+  background-color: rgb(80, 80, 230);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 7px 1rem;
+  border-radius: 10px;
+  align-self: center;
+  transition: background-color 0.4s;
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(28, 28, 97);
+  }
+}
+.close-btn {
+  align-self: end;
+  background-color: transparent;
+  border: none;
+  &:hover {
+    cursor: pointer;
+    color: grey;
+  }
+}
