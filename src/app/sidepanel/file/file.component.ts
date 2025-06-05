@@ -12,7 +12,4 @@ export class FileComponent {
 
   constructor(private dataService: DataService){}
   
-  onDelete() {
-    this.dataService.delete(this.mainFile["id"])
-  }
 }

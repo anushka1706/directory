@@ -9,6 +9,8 @@ export class DataService {
   action: BehaviorSubject<string> = new BehaviorSubject<string>('')
   newData: BehaviorSubject<{ [key: string]: any }> = new BehaviorSubject<{ [key: string | number]: any }>({})
   fileHeirarchy: any[] = []
+  selectedFolderId: BehaviorSubject<number | null> = new BehaviorSubject<number | null>(null);
+
 
   constructor() { }
 
@@ -16,12 +18,5 @@ export class DataService {
     const id: Date = new Date()
     return id.getTime()
   }
-  delete(id: any) {
-    this.fileHeirarchy.forEach(item => {
-      if (item["id"] === id) {
-        const index = this.fileHeirarchy.indexOf(item)
-        this.fileHeirarchy.splice(index, 1)
-      }
-    })
-  }
+
 }

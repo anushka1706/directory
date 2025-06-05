@@ -1,17 +1,32 @@
-<div class="folder-container" (click)="expandFolder()">
+<div class="folder-container" (click)="expandFolder($event)" (blur)="onBlur()">
   <div class="info">
-    <span
-      class="arrow-icon"
-      style="font: size 12px"
-      [class.isExpanded]="isExpanded"
-      >&#11166;</span
-    >
+    <span class="arrow-icon" [class.isExpanded]="isExpanded">&#11166;</span>
     <p class="folder-name">{{ mainFolder["name"] }}</p>
+    <button (click)="setAsSelectedFolder($event)" class="add-btn">+</button>
   </div>
+
   <div class="input-container" *ngIf="showInput">
-    <input type="text" (keyup.enter)="onCreateChild($event)" />
-  </div>
-    <div class="child-items" *ngFor="let child in currentFolder['child']">
-      <p>{{ child.name }}</p>
+    <input type="text" (keyup.enter)="onCreateChild($event)" class="name-input" />
+    <div class="actions">
+      <input type="radio" name="type" value="file" [(ngModel)]="selectedType" checked/>
+      <label for="" class="radio-type">File</label>
+      <input
+        type="radio"
+        name="type"
+        value="folder"
+        [(ngModel)]="selectedType"
+      />
+      <label for="" class="radio-type">Folder</label>
     </div>
   </div>
+
+  <div class="child-items" *ngIf="isExpanded" (click)="expandFolder($event)">
+    <ng-container *ngFor="let child of mainFolder['child']">
+      <app-folder
+        *ngIf="child.type === 'folder'"
+        [mainFolder]="child"
+      ></app-folder>
+      <app-file *ngIf="child.type === 'file'" [mainFile]="child"></app-file>
+    </ng-container>
+  </div>
+</div>

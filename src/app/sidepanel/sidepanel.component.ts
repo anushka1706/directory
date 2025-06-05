@@ -14,9 +14,6 @@ export class SidepanelComponent implements OnInit {
 
   ngOnInit(): void {
     this.allData = this.dataService.fileHeirarchy
-    console.log(this.allData)
   }
-  onAction(action: string) {
-    this.dataService.action.next(action)
-  }
+
 }

@@ -14,41 +14,56 @@ export class FolderComponent implements OnInit {
   currentFolder !: { [key: string]: any }
   action !: string
   showInput: boolean = false
+  selectedType !: string
 
   constructor(private dataService: DataService) { }
 
   isExpanded: boolean = false
-  // expandedFolders: any[] = []
 
   ngOnInit(): void {
-    this.currentFolder = this.mainFolder
+    this.currentFolder = this.mainFolder;
+
     this.dataService.action.subscribe(action => {
-      this.action = action
-      this.showInput = true
-    })
+      this.action = action;
+    });
+
+    this.dataService.selectedFolderId.subscribe(id => {
+      this.showInput = this.mainFolder['id'] === id;
+    });
   }
 
-  expandFolder() {
+  expandFolder(e: Event) {
+    e.stopPropagation()
     this.isExpanded = !this.isExpanded
   }
 
   onCreateChild(e: any) {
-    const value = e.target.value
-    this.showInput = false
+    e.stopPropagation()
+    const value = e.target.value;
+    this.showInput = false;
+
+    this.mainFolder['child'] = this.mainFolder['child'] || [];
+
     const data = {
       name: value,
-      type: this.action,
+      type: this.selectedType,
       id: this.dataService.generateId(),
-      parentId: this.currentFolder['id'],
+      parentId: this.mainFolder['id'],
       child: []
-    }
-    this.currentFolder['child']?.push({
-      id: data.id,
-      type: data.type,
-      name: data.name
-    })
-    // this.childData.push(data);
-    console.log(this.currentFolder)
-    this.currentFolder = data
+    };
+
+    this.mainFolder['child'].push(data);
+    console.log(this.mainFolder)
+  }
+
+  setAsSelectedFolder(event: MouseEvent) {
+    event.stopPropagation();
+    this.dataService.selectedFolderId.next(this.mainFolder['id']);
+  }
+  onAction(type: string) {
+    this.selectedType = type
+  }
+  onBlur() {
+    this.isExpanded = false
   }
 }

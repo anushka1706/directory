@@ -1,8 +1,5 @@
 <div class="sidepanel">
-  <div class="actions">
-    <button class="create-btn" (click)="onAction('file')">+ File</button>
-    <button class="create-btn" (click)="onAction('folder')">+ Folder</button>
-  </div>
+  <p class="heading">Your Directory</p>
   <div class="items-container">
       <div *ngFor="let items of allData" class="items">
         <div *ngIf="items['type'] === 'folder'" class="folder-container">

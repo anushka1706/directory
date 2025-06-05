@@ -24,7 +24,8 @@
   transform: rotate(90deg);
   transition: transform 0.4s;
 }
-.create-btn {
+.create-btn,
+.add-btn {
   background-color: black;
   padding: 7px;
   color: white;
@@ -35,6 +36,11 @@
     background-color: rgb(76, 75, 75);
   }
 }
+.add-btn {
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-weight: 500;
+}
 .actions {
   display: flex;
   justify-content: end;
@@ -42,4 +48,13 @@
   gap: 2px;
   align-self: end;
   width: fit-content;
+}
+.radio-type {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.name-input {
+  border: 2px solid rgb(173, 173, 173);
+  padding: 5px;
+  border-radius: 7px;
 }
